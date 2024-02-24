@@ -24,12 +24,19 @@ public class Main {
 //        System.out.println("Result of the Method = "+ result);
 
 
-//SubArrayWithZeroSum
-    SubArrayWithZeroSumUsingHashMap a = new SubArrayWithZeroSumUsingHashMap();
-    a.InvokeStart();
+////SubArrayWithZeroSum
+//    SubArrayWithZeroSumUsingHashMap a = new SubArrayWithZeroSumUsingHashMap();
+//    a.InvokeStart();
+//
 
+////Nth Fibonacci Number using Recursion
+//        NthFibonacciNumberUsingRecursion a = new NthFibonacciNumberUsingRecursion();
+//        a.InvokeStart();
+//
+//
 
-
-
+// Nth Fibonacci Number using DDynamic Programming
+        NthFibonacciNumberUsingDP a = new NthFibonacciNumberUsingDP();
+        a.InvokeStart();
     }
 }
