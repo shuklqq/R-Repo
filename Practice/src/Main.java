@@ -35,8 +35,23 @@ public class Main {
 //
 //
 
-// Nth Fibonacci Number using DDynamic Programming
-        NthFibonacciNumberUsingDP a = new NthFibonacciNumberUsingDP();
-        a.InvokeStart();
-    }
+//// Nth Fibonacci Number using DDynamic Programming
+//        NthFibonacciNumberUsingDP a = new NthFibonacciNumberUsingDP();
+//        a.InvokeStart();
+//
+
+//EquilibriumIndexOfArrayUsingArraySum
+//        EquilibriumIndexOfAnArrayUsingArraySum a = new EquilibriumIndexOfAnArrayUsingArraySum();
+//        a.InvokeStart();
+//
+
+//Trapping Rain Water Using pre calculation
+//        TrappingRainWaterUsingPreCalculation a  = new TrappingRainWaterUsingPreCalculation();
+//        a.InvokeStart();
+//
+
+// Trapping  Rain water using Stack
+          TrappingRainWaterUsingStack a = new TrappingRainWaterUsingStack();
+          a.InvokeStart();
+      }
 }
