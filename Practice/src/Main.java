@@ -51,7 +51,12 @@ public class Main {
 //
 
 // Trapping  Rain water using Stack
-          TrappingRainWaterUsingStack a = new TrappingRainWaterUsingStack();
-          a.InvokeStart();
+//          TrappingRainWaterUsingStack a = new TrappingRainWaterUsingStack();
+//          a.InvokeStart();
+//
+
+// Array Subset of Another Array using hashmap
+        ArraySubsetofAnotherArrayUsingHashmap a = new ArraySubsetofAnotherArrayUsingHashmap();
+        a.InvokeStart();
       }
 }
