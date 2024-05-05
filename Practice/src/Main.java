@@ -1,3 +1,5 @@
+import java.io.File;
+
 public class Main {
     public static void main(String[] args) {
 
@@ -56,7 +58,12 @@ public class Main {
 //
 
 // Array Subset of Another Array using hashmap
-        ArraySubsetofAnotherArrayUsingHashmap a = new ArraySubsetofAnotherArrayUsingHashmap();
+//        ArraySubsetofAnotherArrayUsingHashmap a = new ArraySubsetofAnotherArrayUsingHashmap();
+//        a.InvokeStart();
+
+// Methode to do File Handling.
+        FileHandling a = new FileHandling();
         a.InvokeStart();
-      }
+        a.InvokeRead();
+    }
 }
