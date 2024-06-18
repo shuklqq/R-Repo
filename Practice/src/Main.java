@@ -3,12 +3,12 @@ import java.io.File;
 public class Main {
     public static void main(String[] args) {
 
-//Greatest Common DivisorOfStrings
+////Greatest Common DivisorOfStrings
 //    /*
 //    * Variable Declarations
 //    * */
-//        String str1 = "";
-//        String str2 = "";
+//        String str1 = "ABCABC";
+//        String str2 = "ABC";
 //        String result = "";
 //
 //    /*
@@ -24,7 +24,7 @@ public class Main {
 //    * */
 //
 //        System.out.println("Result of the Method = "+ result);
-
+//
 
 ////SubArrayWithZeroSum
 //    SubArrayWithZeroSumUsingHashMap a = new SubArrayWithZeroSumUsingHashMap();
@@ -62,8 +62,18 @@ public class Main {
 //        a.InvokeStart();
 
 // Methode to do File Handling.
-        FileHandling a = new FileHandling();
-        a.InvokeStart();
-        a.InvokeRead();
+//        FileHandling a = new FileHandling();
+//        a.InvokeStart();
+//        a.InvokeRead();
+//  test
+//        TestApplication test = new TestApplication();
+//        test.InvokeMain();
+//
+//  Flower Bed
+        CanPlaceFlowers cpf = new CanPlaceFlowers();
+        int[] a = {0};
+        int n = 1;
+        boolean b = cpf.canPlaceFlowers(a,n);
+        System.out.println(b);
     }
 }
