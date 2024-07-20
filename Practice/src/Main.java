@@ -155,8 +155,53 @@ public class Main {
 //        System.out.println(fth.largestAltitude(nums));
 
 // Find Pivot Index
-        FindPivotIndex fpi = new FindPivotIndex();
-        int[] a = {1,7,3,6,5,6};
-        System.out.println(fpi.pivotIndex(a));
+//        FindPivotIndex fpi = new FindPivotIndex();
+//        int[] a = {1,7,3,6,5,6};
+//        System.out.println(fpi.pivotIndex(a));
+
+// Difference of Two Arrays
+//        DifferenceOfTwoArrays dot = new DifferenceOfTwoArrays();
+//        int[] a = {1,2,3};
+//        int[] b = {2,4,6};
+//        System.out.println(dot.findDifference(a,b));
+
+// Unique Number of Occurrences
+//        UniqueNumberOfOccurrences uno = new UniqueNumberOfOccurrences();
+//        int[] arr = {26,2,16,16,5,5,26,2,5,20,20,5,2,20,2,2,20,2,16,20,16,17,16,2,16,20,26,16};
+//        System.out.println(uno.uniqueOccurrences(arr));
+
+// Determine if two strings are close
+//        DetermineIfTwoStringsAreClosed2 dit = new DetermineIfTwoStringsAreClosed2();
+//        String s1 = "idepikndmiddzcdcdahncdcvhnifhbizrdyyicwnijcmscszdgtlnyonishuiiqdxhic";
+//        String s2 = "axxkhxlphcsycywsigilhsixdiuclqlxzbcexkcllfyocxcjklpnvxxixytixmccyclr";
+//        System.out.println(dit.closeStrings(s1,s2));
+
+// Equal Rows And Column Pairs
+//        EqualRowsAndColumnPairs2 er = new EqualRowsAndColumnPairs2();
+//        int[][] grid = {{11,1},{1,11}};
+//        System.out.println(er.equalPairs(grid));
+
+// Remove Stars from a string
+//        RemoveStarsFromAString rs = new RemoveStarsFromAString();
+//        String s = "leet**cod*e";
+//        System.out.println(rs.removeStars(s));
+
+// Astroid Collision
+//        AstroidCollision ac = new AstroidCollision();
+//        int[] arr = {-2,-1,1,2};
+//        int[] b = ac.asteroidCollision(arr);
+//        for(int a = 0 ; a < b.length ; a++){
+//            System.out.println(b[a]);
+//        }
+
+// Decode String
+//        DecodeString ds = new DecodeString();
+//        String s = "100[leetcode]";
+//        System.out.println(ds.decodeString(s));
+
+// Predict Party Victory
+        PredictPartyVictory ppv = new PredictPartyVictory();
+        String s = "DDDRRRRR";
+        System.out.println(ppv.predictPartyVictory(s));
    }
 }
