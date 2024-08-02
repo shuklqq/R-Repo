@@ -1,4 +1,14 @@
+import LinkedList.DeleteTheMiddleNode;
+import LinkedList.ListNode;
+import LinkedList.MaximumTwinSumOfALinkedList;
+import LinkedList.OddEvenLinkedList;
+import Tree.*;
+
 import java.io.File;
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Queue;
 
 public class Main {
     public static void main(String[] args) {
@@ -200,8 +210,135 @@ public class Main {
 //        System.out.println(ds.decodeString(s));
 
 // Predict Party Victory
-        PredictPartyVictory ppv = new PredictPartyVictory();
-        String s = "DDDRRRRR";
-        System.out.println(ppv.predictPartyVictory(s));
+//        PredictPartyVictory ppv = new PredictPartyVictory();
+//        String s = "DDDRRRRR";
+//        System.out.println(ppv.predictPartyVictory(s));
+
+// Delete the Middle node of the LinkedList
+//        DeleteTheMiddleNode dm = new DeleteTheMiddleNode();
+//        ListNode listNode7 = new ListNode(7,null);
+//        ListNode listNode6 = new ListNode(6,listNode7);
+//        ListNode listNode5 = new ListNode(5,listNode6);
+//        ListNode listNode4 = new ListNode(4,listNode5);
+//        ListNode listNode3 = new ListNode(3,listNode4);
+//        ListNode listNode2 = new ListNode(2,listNode3);
+//        ListNode listNode1 = new ListNode(1,listNode2);
+//
+//        ListNode final1 = dm.deleteMiddle(listNode1);
+//        while(final1 != null){
+//            System.out.println(final1.getValue());
+//            final1 = final1.getNext();
+//        }
+
+// OddEvenLinkedList
+//        OddEvenLinkedList oe = new OddEvenLinkedList();
+//        ListNode listNode4 = new ListNode(1,null);
+//        ListNode listNode3 = new ListNode(3,listNode4);
+//        ListNode listNode2 = new ListNode(4,listNode3);
+//        ListNode listNode1 = new ListNode(5,listNode2);
+//
+//        ListNode final1  = oe.oddEvenList(listNode1);
+//
+//        while(final1 != null){
+//            System.out.println(final1.getValue());
+//            final1 = final1.getNext();
+//        }
+
+// Maximum twin sum of a linked list
+//        MaximumTwinSumOfALinkedList ma = new MaximumTwinSumOfALinkedList();
+//        ListNode listNode4 = new ListNode(1,null);
+//        ListNode listNode3 = new ListNode(3,listNode4);
+//        ListNode listNode2 = new ListNode(4,listNode3);
+//        ListNode listNode1 = new ListNode(5,listNode2);
+//
+//        int final1  = ma.pairSum(listNode1);
+//        System.out.println("Sum : " + final1);
+
+// Leaf Similar Tree
+//        LeafSimilarTree lf = new LeafSimilarTree();
+//        TreeNode t1 = new TreeNode(6, null,null );
+//        TreeNode t2 = new TreeNode(7, null,null );
+//        TreeNode t3 = new TreeNode(9, null,null );
+//        TreeNode t4 = new TreeNode(4, null,null );
+//        TreeNode t5 = new TreeNode(8, null,null );
+//        TreeNode t6 = new TreeNode(2, t2,t3 );
+//        TreeNode t7 = new TreeNode(1, t4,t5 );
+//        TreeNode t8 = new TreeNode(5, t1,t6 );
+//        TreeNode t9 = new TreeNode(3, t8,t7 );
+//
+//        TreeNode p1 = new TreeNode(6, null,null );
+//        TreeNode p2 = new TreeNode(7, null,null );
+//        TreeNode p3 = new TreeNode(4, null,null );
+//        TreeNode p4 = new TreeNode(9, null,null );
+//        TreeNode p5 = new TreeNode(8, null,null );
+//        TreeNode p6 = new TreeNode(2, p4,p5 );
+//        TreeNode p7 = new TreeNode(1, p3,p6 );
+//        TreeNode p8 = new TreeNode(5, p1,p2 );
+//        TreeNode p9 = new TreeNode(3, p8,p7 );
+//
+//        System.out.println(lf.leafSimilar(t9,p9));
+
+// Count Good Nodes
+//        CountGoodNodes cg = new CountGoodNodes();
+
+// Path Sum
+//        PathSum3 ps = new PathSum3();
+
+//LongestZigZag Path
+//        LongestZigZag2 lz = new LongestZigZag2();
+
+// Lowest Common Ancestor
+//        LowestCommonAncestor lc = new LowestCommonAncestor();
+//        TreeNode p1 = new TreeNode(6, null,null );
+//        TreeNode p2 = new TreeNode(7, null,null );
+//        TreeNode p3 = new TreeNode(4, null,null );
+//        TreeNode p4 = new TreeNode(0, null,null );
+//        TreeNode p5 = new TreeNode(8, null,null );
+//        TreeNode p6 = new TreeNode(2, p2,p3);
+//        TreeNode p7 = new TreeNode(5, p1,p6 );
+//        TreeNode p8 = new TreeNode(1, p4,p5 );
+//        TreeNode p9 = new TreeNode(3, p7,p8 );
+//
+//        System.out.println(lc.lowestCommonAncestor(p9, p7, p8).val);
+
+// Binary Tree Right Side view
+//        BinaryTreeRightSideView bt = new BinaryTreeRightSideView();
+//        TreeNode p1 = new TreeNode(5, null,null );
+//        TreeNode p2 = new TreeNode(4, null,null );
+//        TreeNode p3 = new TreeNode(2, null,p1 );
+//        TreeNode p4 = new TreeNode(3, null,p2 );
+//        TreeNode p5 = new TreeNode(1, p3,p4 );
+//
+//        List<Integer> arr = bt.rightSideView(p5);
+//        for(int a = 0 ; a < arr.size() ; a++){
+//            System.out.println(arr.get(a));
+//        }
+
+//Binary Search Tree Deletion
+        DeleteNodeInBST dn = new DeleteNodeInBST();
+        TreeNode p1 = new TreeNode(2, null, null);
+        TreeNode p2 = new TreeNode(4, null, null);
+        TreeNode p3 = new TreeNode(7, null, null);
+        TreeNode p4 = new TreeNode(3, p1, p2);
+        TreeNode p5 = new TreeNode(6, null, p3);
+        TreeNode p6 = new TreeNode(5, p4, p5);
+        TreeNode result = dn.deleteNode(p6,3);
+        System.out.println("Returned from function");
+        inorderPrint(result);
    }
+
+    private static void inorderPrint(TreeNode result) {
+        Queue<TreeNode> print = new LinkedList<>();
+        print.add(result);
+        while(!print.isEmpty()){
+            TreeNode temp = print.poll();
+            System.out.println(temp.val);
+            if(temp.getLeft() != null){
+                print.add(temp.getLeft());
+            }
+            if(temp.getRight() != null){
+                print.add(temp.getRight());
+            }
+        }
+    }
 }
