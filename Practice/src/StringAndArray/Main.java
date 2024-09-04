@@ -7,10 +7,7 @@ import LinkedList.OddEvenLinkedList;
 import Tree.*;
 
 import java.io.File;
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Queue;
+import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -317,30 +314,53 @@ public class Main {
 //        }
 
 //Binary Search Tree Deletion
-        DeleteNodeInBST dn = new DeleteNodeInBST();
-        TreeNode p1 = new TreeNode(2, null, null);
-        TreeNode p2 = new TreeNode(4, null, null);
-        TreeNode p3 = new TreeNode(7, null, null);
-        TreeNode p4 = new TreeNode(3, p1, p2);
-        TreeNode p5 = new TreeNode(6, null, p3);
-        TreeNode p6 = new TreeNode(5, p4, p5);
-        TreeNode result = dn.deleteNode(p6,3);
-        System.out.println("Returned from function");
-        inorderPrint(result);
-   }
+//        DeleteNodeInBST dn = new DeleteNodeInBST();
+//        TreeNode p1 = new TreeNode(2, null, null);
+//        TreeNode p2 = new TreeNode(4, null, null);
+//        TreeNode p3 = new TreeNode(7, null, null);
+//        TreeNode p4 = new TreeNode(3, p1, p2);
+//        TreeNode p5 = new TreeNode(6, null, p3);
+//        TreeNode p6 = new TreeNode(5, p4, p5);
+//        TreeNode result = dn.deleteNode(p6,3);
+//        System.out.println("Returned from function");
+//        inorderPrint(result);
+//   }
+//
+//    private static void inorderPrint(TreeNode result) {
+//        Queue<TreeNode> print = new LinkedList<>();
+//        print.add(result);
+//        while(!print.isEmpty()){
+//            TreeNode temp = print.poll();
+//            System.out.println(temp.val);
+//            if(temp.getLeft() != null){
+//                print.add(temp.getLeft());
+//            }
+//            if(temp.getRight() != null){
+//                print.add(temp.getRight());
+//            }
+//        }
+//
+//        int[] a = {1,1,1,2,2,3};
+//        int[] b = {1};
+//        Test t = new Test();
+//        System.out.println(t.removeDuplicates(a));
+      //  t.merge(a,0,b,1);
 
-    private static void inorderPrint(TreeNode result) {
-        Queue<TreeNode> print = new LinkedList<>();
-        print.add(result);
-        while(!print.isEmpty()){
-            TreeNode temp = print.poll();
-            System.out.println(temp.val);
-            if(temp.getLeft() != null){
-                print.add(temp.getLeft());
-            }
-            if(temp.getRight() != null){
-                print.add(temp.getRight());
-            }
-        }
+// Integer to Roman
+//        IntegerToRoman a = new IntegerToRoman();
+//        int x = 3749;
+//        System.out.println(a.intToRoman(x));
+
+// Two sum 2
+//        TwoSum2 a = new TwoSum2();
+//        int[] x = {5,25,75};
+//        int[] y = a.twoSum(x,100);
+//        System.out.println(y[0] + " " + y[1]);
+
+// Rotate Array
+        RotateArray r = new RotateArray();
+        int[] arr = {1,2,3,4,5,6,7,8};
+        r.rotate(arr, 3);
+        Arrays.stream(arr).forEach(a -> System.out.println(a));
     }
 }
