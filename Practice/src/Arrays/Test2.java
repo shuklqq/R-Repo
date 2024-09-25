@@ -19,6 +19,11 @@ public class Test2 {
 
         });
 
+        Map<String,List<Employee>> temp = employees.stream().collect(Collectors.groupingBy(Employee::getDepartment));
+        temp.forEach((a, b) -> {
+            System.out.println("Department : " + a);
+            b.stream().sorted((d,e) -> (int)e.getSal() - (int)d.getSal()).forEach(c -> System.out.println(c.toString()));
+        });
         System.out.println("\nEmployees whose salary greater than 40000:");
         //TODO - Print employee name whose salary is greater than 40000 using java8 streams
         employees.stream().filter(emp -> emp.getSal() > 40000).forEach(emp -> System.out.println(emp.toString()));

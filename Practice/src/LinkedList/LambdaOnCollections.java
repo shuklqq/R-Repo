@@ -9,7 +9,7 @@ public class LambdaOnCollections {
 
     public void executeAll() {
         LinkedList<String> linkedList = new LinkedList<>();
-        linkedList.add("Apple");
+        linkedList.add("Scheduler");
         linkedList.add("Banana");
         linkedList.add("Carrot");
         linkedList.add("Diamond");
