@@ -35,7 +35,7 @@ public class TopKFrequentElements {
 
 // Approach 1
 
-//        Map<Integer, Integer> memo = new HashMap<>();
+//        Map<Integer, Integer> memo = new Map<>();
 //        int[] res = new int[k];
 //        for(int a : nums){
 //            memo.putIfAbsent(a, 0);
@@ -63,7 +63,7 @@ public class TopKFrequentElements {
  compares the inserted value with existing and push the minimum value on the top of the queue. Helping in keeping on K
  elements in the priority queue.
 */
-//        Map<Integer, Integer> memo = new HashMap<>();
+//        Map<Integer, Integer> memo = new Map<>();
 //        for(int num : nums){
 //            memo.put(num, memo.getOrDefault(num, 0) + 1);
 //        }

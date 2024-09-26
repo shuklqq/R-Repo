@@ -1,11 +1,8 @@
-package HashMap;
-
-import java.util.Arrays;
-import java.util.HashMap;
+package Map;
 
 public class IsomorphicStrings {
     public boolean isIsomorphic(String s, String t) {
-//        HashMap<Character,Character> map = new HashMap<>();
+//        Map<Character,Character> map = new Map<>();
 //        for(int a = 0 ; a < s.length() ; a++){
 //            System.out.println(s.charAt(a) + " " + t.charAt(a));
 //            if(map.containsKey(s.charAt(a))){

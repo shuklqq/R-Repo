@@ -1,7 +1,4 @@
-package HashMap;
-
-import java.util.ArrayList;
-import java.util.Arrays;
+package Map;
 
 public class RansomNote {
     public boolean canConstruct(String ransomNote, String magazine) {

@@ -48,7 +48,7 @@ public class GroupAnagram {
 
 // Approach 1
 
-//        Map<String, List<String>> memo = new HashMap<>();
+//        Map<String, List<String>> memo = new Map<>();
 //        List<List<String>> res = new ArrayList<>();
 //        for (int a = 0; a < strs.length; a++) {
 //            char[] b = strs[a].toCharArray();
