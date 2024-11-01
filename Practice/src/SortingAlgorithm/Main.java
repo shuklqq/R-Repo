@@ -26,8 +26,8 @@ public class Main {
 //        Arrays.stream(a).forEach(x -> System.out.println(x));
 
 //      Quick Sort Implementation
-        QuickSortImplementation q = new QuickSortImplementation();
-        q.sort(a,0, a.length-1);
-        Arrays.stream(a).forEach(x -> System.out.println(x));
+//        QuickSortImplementation q = new QuickSortImplementation();
+//        q.sort(a,0, a.length-1);
+//        Arrays.stream(a).forEach(x -> System.out.println(x));
     }
 }
