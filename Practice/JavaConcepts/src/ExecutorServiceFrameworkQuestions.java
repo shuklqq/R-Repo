@@ -1,7 +1,11 @@
+import java.sql.Time;
+import java.time.Instant;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
+import java.util.concurrent.*;
+import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
@@ -122,6 +126,136 @@ public class ExecutorServiceFrameworkQuestions {
                             }
                         }
                         readPool.shutdown();
+            /*
+
+                Question 4: Using the Lock Framework, create a multithreaded program where multiple threads are trying
+                to book seats for a concert. There are only 10 seats available, and each thread should try to book a
+                seat if any are available. Once a seat is booked, it should not be available for other threads.
+                1 - Implement the seat-booking logic using an appropriate lock mechanism.
+                2 - Ensure that each thread safely checks and updates the seat availability.
+                3 - Print out messages showing which thread successfully booked a seat or if no seats are available
+                    when a thread attempts to book.
+                Once you’ve coded this, share it, and we’ll go over any improvements or enhancements that can be made.
+
+             */
+                        List<Boolean> seatBookingList = new ArrayList<>(Collections.nCopies(10, false));
+                        ReentrantReadWriteLock lock = new ReentrantReadWriteLock(true);
+
+                        Runnable bookTask = () -> {
+                            lock.writeLock().lock();
+                            try{
+                                for(int i = 0 ; i < seatBookingList.size() ; i++){
+                                    if(!seatBookingList.get(i)){
+                                        seatBookingList.set(i , true);
+                                        System.out.println(Thread.currentThread().getName() + " booked seat number " + (i+1));
+                                        break;
+                                    }
+                                }
+                            }finally {
+                                lock.writeLock().unlock();
+                            }
+                        };
+
+                        ExecutorService seatBookingThreads = Executors.newFixedThreadPool(3);
+                        for(int i = 0 ; i  < 10 ; i++){
+                            seatBookingThreads.execute(bookTask);
+                        }
+                        seatBookingThreads.shutdown();
+                        try{
+                            if(!seatBookingThreads.awaitTermination(1, TimeUnit.SECONDS)){
+                                System.out.println("Some tasks did not complete within the timeout");
+                            }
+                        }catch(InterruptedException e) {
+                            Thread.currentThread().interrupt();
+                        }
+            /**
+             * More efficient way to solve the above is to use AtomicBoolean array, rather than locks on List, since,
+             * AtomicBoolean variable can be independently do the update with blocking the list via any lock.
+             * When to Prefer Lock-Free Over Locking Solutions
+             *      High Concurrency Needs: For systems that need to handle many concurrent threads, lock-free
+             *          structures reduce bottlenecks.
+             *      Independent Updates: If each thread’s work can be isolated (as with independent seat bookings),
+             *          lock-free structures shine.
+             *      Reduced Complexity: Code using atomic operations is usually more straightforward than code managing
+             *          lock states, making it preferable where possible.
+              */
+                        AtomicBoolean[] seatBooking2 = new AtomicBoolean[10];
+                        for (int i = 0; i < seatBooking2.length; i++) {
+                            seatBooking2[i] = new AtomicBoolean(false); // All seats initially available
+                        }
+
+                        Runnable seatBookingTask2 = () -> {
+                            for(int a = 0 ; a < 10 ; a++){
+                                if(seatBooking2[a].compareAndSet(false, true)){
+                                    System.out.println(Thread.currentThread().getName() + " booked seat number " + (a + 1));
+                                    break;
+                                }
+                            }
+                        };
+
+                        ExecutorService threadsForSeatBooking = Executors.newFixedThreadPool(3);
+                        for(int a = 0 ; a < 10 ; a++){
+                            threadsForSeatBooking.execute(seatBookingTask2);
+                        }
+                        threadsForSeatBooking.shutdown();
+                        try{
+                            if(!threadsForSeatBooking.awaitTermination(1, TimeUnit.SECONDS)){
+                                System.out.println("We were not able to book tickets as the seats are already full");
+                            }
+                        }catch (InterruptedException e){
+                            Thread.currentThread().interrupt();
+                        }
+
+        /*
+        Question 5 : Implement a thread-safe cache in Java. The cache should:
+            1 - Store key-value pairs where both the key and value are strings.
+            2 - Support put, get, and remove operations.
+            3 - Expire entries after a certain timeout period (you can assume a default of 5 seconds).
+            4 - Use a ConcurrentHashMap for storing the cache entries.
+            5 - Ensure that expired entries are removed automatically from the cache.
+            This cache implementation will help simulate scenarios like temporary storage of data for quick access,
+            where data is discarded after a period.
+         */
+
+                        ConcurrentHashMap<Integer, cacheEntry> cache = new ConcurrentHashMap<>();
+                        Runnable cacheEntryTask = () -> {
+                            for(int a = 0 ; a < 20 ; a++){
+                                cache.put(a , new cacheEntry("String1 : " + a, "String2 : " + a , Instant.now()));
+                                System.out.println("Added Cache Entry : " + a + " : " + cache.get(a).value1() + " : By Thread : " + Thread.currentThread().getName());
+                            }
+                            try{
+                                Thread.sleep(100);
+                            }catch (InterruptedException e){
+                                Thread.currentThread().interrupt();
+                            }
+                        };
+                        Runnable cacheDeletionTask = () -> {
+                            for(Integer key : cache.keySet()){
+                                cache.computeIfPresent(key, (k,v) ->{
+                                    if(Instant.now().minusSeconds(5).isAfter(v.timeOfCreation())){
+                                        return null;
+                                    }
+                                    return v;
+                                });
+                            }
+                        };
+
+                        ExecutorService cacheAddition = Executors.newFixedThreadPool(3);
+                        ScheduledExecutorService cacheDeletion = Executors.newScheduledThreadPool(1);
+
+                        cacheAddition.execute(cacheEntryTask);
+                        cacheDeletion.scheduleAtFixedRate(cacheDeletionTask, 0, 5, TimeUnit.SECONDS);
+
+                        cacheAddition.shutdown();
+                        cacheAddition.awaitTermination(1 , TimeUnit.MINUTES);
+
+                        Thread.sleep(1000);
+
+                        cacheDeletion.shutdown();
+                        cacheDeletion.awaitTermination(1, TimeUnit.MINUTES);
 
     }
+
+
 }
+record cacheEntry(String value1, String value2, Instant timeOfCreation){};
