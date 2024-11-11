@@ -253,7 +253,14 @@ public class ExecutorServiceFrameworkQuestions {
 
                         cacheDeletion.shutdown();
                         cacheDeletion.awaitTermination(1, TimeUnit.MINUTES);
+        /*
+        Question 6 : Using the Executor Framework, create a thread pool that processes a list of URLs. Each thread
+                    should fetch the content of a URL, and for each fetched content, you need to count the number
+                    of occurrences of a specific keyword (let’s say “Java”). Finally, print the URL and the count
+                    of the keyword occurrences.
+         */
 
+        
     }
 
 
