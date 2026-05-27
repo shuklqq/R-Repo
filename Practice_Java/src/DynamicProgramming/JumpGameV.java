@@ -56,39 +56,39 @@ public class JumpGameV {
     }
 
     public int maxPossibleJumps(int[] arr, int[] dp, int currentIndex, int jumpLength){
-        if(dp[currentIndex] != -1) return dp[currentIndex];  // FIX 1: memoization check
+        if(dp[currentIndex] != -1) return dp[currentIndex];
 
         int leftItr = currentIndex - 1;
         int rightItr = currentIndex + 1;
-        int leftMax = 0;   // FIX 2: 0 not -1; dp[i] includes self, so base contributes 0 from neighbors
+        int leftMax = 0;
         int rightMax = 0;
         int len = arr.length;
 
         while(leftItr >= 0 && leftItr >= (currentIndex - jumpLength)){
             if(arr[leftItr] < arr[currentIndex]){
                 if(dp[leftItr] == -1) {
-                    dp[leftItr] = maxPossibleJumps(arr, dp, leftItr, jumpLength); // FIX 1
+                    dp[leftItr] = maxPossibleJumps(arr, dp, leftItr, jumpLength);
                 }
-                leftMax = Math.max(leftMax, dp[leftItr]);  // FIX 3: track max, not overwrite
-                leftItr--;                                  // FIX 4: advance iterator
+                leftMax = Math.max(leftMax, dp[leftItr]);
+                leftItr--;
             } else {
                 break;
             }
         }
 
-        while(rightItr < len && rightItr <= (currentIndex + jumpLength)){  // FIX 5: <= to include d steps
+        while(rightItr < len && rightItr <= (currentIndex + jumpLength)){
             if(arr[rightItr] < arr[currentIndex]){
                 if(dp[rightItr] == -1) {
-                    dp[rightItr] = maxPossibleJumps(arr, dp, rightItr, jumpLength); // FIX 1
+                    dp[rightItr] = maxPossibleJumps(arr, dp, rightItr, jumpLength);
                 }
-                rightMax = Math.max(rightMax, dp[rightItr]); // FIX 3
-                rightItr++;                                   // FIX 4
+                rightMax = Math.max(rightMax, dp[rightItr]);
+                rightItr++;
             } else {
                 break;
             }
         }
 
-        dp[currentIndex] = 1 + Math.max(leftMax, rightMax);  // FIX 2: +1 counts currentIndex itself
+        dp[currentIndex] = 1 + Math.max(leftMax, rightMax);
         return dp[currentIndex];
     }
 }
