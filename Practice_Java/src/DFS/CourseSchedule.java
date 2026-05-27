@@ -2,7 +2,6 @@ package DFS;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
-import java.util.List;
 import java.util.Queue;
 
 /*
@@ -46,7 +45,8 @@ public class CourseSchedule {
      */
     public boolean canFinish(int numCourses, int[][] prerequisites) {
         int[] inDegree = new int[numCourses];
-        ArrayList[] adjList = new ArrayList[numCourses];
+        @SuppressWarnings("unchecked")
+        ArrayList<Integer>[] adjList = (ArrayList<Integer>[]) new ArrayList[numCourses];
         for(int a = 0 ; a < numCourses ; a++){
             adjList[a] = new ArrayList<>();
         }
