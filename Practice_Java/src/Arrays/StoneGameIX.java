@@ -42,10 +42,7 @@ Constraints:
 */
 public class StoneGameIX {
     public boolean stoneGameIX(int[] stones) {
-        int len = stones.length;
-        int count0 = 0;
-        int count1 = 0;
-        int count2 = 0;
+        int count0 = 0, count1 = 0,count2 = 0;
         for (int a : stones) {
             switch (a % 3) {
                 case 0:
@@ -65,4 +62,5 @@ public class StoneGameIX {
             return Math.abs(count1 - count2) >= 3;
         }
     }
+    
 }

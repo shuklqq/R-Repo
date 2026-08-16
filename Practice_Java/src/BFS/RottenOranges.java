@@ -39,8 +39,6 @@ grid[i][j] is 0, 1, or 2.
 
 package BFS;
 
-import javafx.util.Pair;
-
 import java.util.ArrayDeque;
 import java.util.LinkedList;
 import java.util.Queue;
