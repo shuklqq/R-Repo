@@ -1,6 +1,7 @@
 package HashTable;
 
 import java.util.HashMap;
+import java.util.Map;
 
 /*
 
@@ -48,8 +49,25 @@ All reservedSeats[i] are distinct.
 
 public class CinemaSeatAllocation {
     // Aprraoch 3 : 
-
-    
+    public int maxNumberOfFamilies(int n, int[][] reservedSeats) {
+        Map<Integer, Integer> map = new HashMap<>();
+        for(var e : reservedSeats) {
+            int row = e[0], seat = e[1];
+            map.put(row, map.getOrDefault(row, 0) | (1 << seat));
+        }
+        int ans = (n - map.size()) * 2;
+        for(var mask : map.values()) {
+            boolean left = (mask & 0b0000111100) == 0;
+            boolean middle = (mask & 0b0011110000) == 0;
+            boolean right = (mask & 0b1111000000) == 0;
+            if (left && right) {
+                ans += 2;
+            } else if (left || middle || right) {
+                ans += 1;
+            }
+        }
+        return ans;
+    }
     // Approach 2: bitmask per row — O(m) time, O(m) space, m = reservedSeats.length
     // public int maxNumberOfFamilies(int n, int[][] reservedSeats) {
     //     // bit s of the mask is set when seat s of that row is reserved
