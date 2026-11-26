@@ -1,4 +1,4 @@
-package InterviewPrep.Implementation.ArraysAndHashing;
+package InterviewPrep.Implementation.ArraysAndHashing.ArrayBasics;
 /*
 You are given an array of integers nums and a whole number k. Rotate the array to the right by k steps and return it.
 
